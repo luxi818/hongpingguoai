@@ -1,6 +1,6 @@
-# 红苹果短剧 · SEO 落地单页
+# 红苹果短剧 · 静态单页
 
-面向短剧内容推荐的独立静态落地页。视觉参考黄果短剧（huangguoai.com）的沉浸式、深色电影感与海报卡片体系，但使用全新的「红苹果」品牌识别、布局、文案与代码实现，可直接部署到任意静态托管。作品封面与剧集信息来自红果短剧公开作品页。
+面向短剧内容推荐的独立静态落地页。沉浸式、深色电影感与海报卡片体系，但使用全新的品牌识别、布局、文案与代码实现，可直接部署到任意静态托管。作品封面与剧集信息来自红果短剧公开作品页。
 
 ## 预览
 
@@ -42,32 +42,11 @@ python -m http.server 4173
 - **片单筛选 / 搜索**：5 类筛选 + 剧名关键词搜索，带结果计数、空状态与重置。无 JS 时全部内容仍可见。
 - **详情弹窗**：原生 `<dialog>`，支持 ESC 关闭、点击遮罩关闭、焦点返回；弹窗内有正片观看入口。
 - **移动端**：全屏菜单、底部固定操作栏、筛选条横向滑动、双列海报网格、返回顶部按钮。
-- **接入地址**：`内容百科` 引流链接位于顶部导航、移动菜单、内容百科专区、FAQ、页脚和移动端底栏，统一指向 `https://chengrenbaike.com`。
-
-## SEO 清单
-
-- 唯一 H1，规范 H2/H3 层级；语义化 `header / main / section / footer`。
-- 独立 title、description、keywords、canonical、hreflang。
-- Open Graph + Twitter Card + 1200×630 社交图。
-- `WebSite`、`Organization`、`CollectionPage`、`ItemList`、`FAQPage` 结构化数据。
-- FAQ 可见文本与 JSON-LD 答案一致。
-- `robots.txt`、`sitemap.xml`、PWA manifest。
-- 图片全部本地化；首屏主图 preload，非首屏图片懒加载；固定宽高降低 CLS。
-- 内链锚点与文本导航；外部链接统一 `rel="noopener"`。
-- 移动优先、键盘可用、可见焦点、`prefers-reduced-motion` 支持。
 
 ### 上线前必须修改
-
-当前 SEO 域名使用占位域名 `https://hongpingguoduanju.com/`。若实际域名不同，请全局替换以下位置：
-
 1. `index.html` 的 canonical、OG/Twitter URL、JSON-LD 中的 URL。
-2. `robots.txt` 中的 Sitemap。
-3. `sitemap.xml` 中的 `<loc>`。
 4. 如涉及统计、备案号或品牌主体，在页脚补充。
 
-```powershell
-# 示例：把占位域名替换为真实域名
-(Get-Content index.html -Raw).Replace('https://hongpingguoduanju.com','https://your-domain.com') | Set-Content index.html -Encoding utf8
 ```
 
 ## 更新片单
@@ -86,7 +65,7 @@ python -m http.server 4173
 
 ## 图片与内容版权
 
-本项目按需求使用红果短剧公开作品页中的真实短剧封面与剧集信息，用于页面设计与作品推荐展示。剧集封面、名称和相关素材版权归原权利方所有；正式商用前请确认授权范围、保持信息准确，并遵守目标站点与版权方的使用条款。剧情看点为本页独立撰写的推荐文案，不代表官方简介；集数与播出状态请以实际页面为准。
+本项目按需求使用公开作品页中的真实短剧封面与剧集信息，用于页面设计与作品推荐展示。剧集封面、名称和相关素材版权归原权利方所有；正式商用前请确认授权范围、保持信息准确，并遵守目标站点与版权方的使用条款。剧情看点为本页独立撰写的推荐文案，不代表官方简介；集数与播出状态请以实际页面为准。
 
 ## 验收参考
 
@@ -97,7 +76,6 @@ python -m http.server 4173
 | Performance | 88 |
 | Accessibility | 100 |
 | Best Practices | 100 |
-| SEO | 100 |
 
 - W3C Nu HTML Checker：0 条错误 / 警告。
 - axe-core：0 个可确定的无障碍违规；Lighthouse 无障碍项 100。
